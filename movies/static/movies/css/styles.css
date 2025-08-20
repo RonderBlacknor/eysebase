@@ -1,0 +1,156 @@
+body{
+    background-color: rgb(17, 18, 36);  
+}
+
+/* РАБОТА С ШАПКОЙ САЙТА */
+.site-header{
+    height: 75px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(38, 39, 70);
+}
+
+
+.logo{
+    color: aliceblue;
+    font-size: 32px;
+}
+
+.spisoksil{
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 12px;
+    color: rgb(38, 39, 70);
+    text-decoration: none;
+}
+
+a {
+    color: rgb(63, 65, 117);
+    text-decoration: none;
+    padding: 15px;
+}
+
+a:hover{
+    color: rgb(106, 109, 197);
+    transition: 0.4s;
+}
+
+.container{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    flex-wrap:wrap;
+}
+
+/* РАБОТА С МЕНЮ ФИЛЬМОВ  */
+h2{
+    color: aliceblue;
+    font-size: 40px;
+}
+
+.view-all{
+    color: rgb(125, 109, 238);
+}
+
+.view-all:hover{
+    color: rgb(143, 128, 255);
+}
+
+.movies-grid_container{
+    padding: 15px;
+    display: flex;
+    flex-direction:row;
+    margin: 8px;
+}
+
+/* Работа с Карточками */
+
+.movie-card{
+    background-color: rgb(36, 36, 60) ;
+    height: 550px;
+    width: 210px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 6px;
+    margin: 15px;
+}
+
+.poster-placeholder{
+    height: 260px ;
+    background-color: rgb(63, 63, 109);
+    width: 209px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: rgb(112, 114, 156);
+}
+
+.movie-title{
+    color: aliceblue;
+    font-size: 24px;
+}
+
+.movie-genre{
+    background-color:  rgb(44, 44, 70) ;
+    color: rgb(125, 109, 238);
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.movie-desc{
+    color: rgb(83, 85, 150);
+    
+}
+
+.btn-details{
+    margin: 1px;
+    padding: 10px;
+    background-color: rgb(126, 107, 255) ;
+    color: aliceblue;
+    border-radius: 6px;
+}
+
+.btn-details:hover{
+    background-color: rgb(151, 135, 255) ;
+    color:aliceblue;
+    transition: 0.8s;
+}
+
+/* НИЖНЯЯ ШАПКА */
+.site-footer{
+    margin-top: 130px;
+    background-color: rgb(38, 39, 70) ;
+    color: rgb(112, 114, 156);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content:space-evenly;
+    
+}
+
+.copyright{
+    text-decoration:overline;
+}
+
+/*  О НАС */
+
+h1{
+    color: aliceblue;
+
+}
+
+p{
+    color: rgb(112, 114, 156);;
+}
+
+.section-header_container{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}

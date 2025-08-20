@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | easybase</title>
+    <link rel="stylesheet" href="{% static 'movies/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    {% block mainmenu %}
+    <header class="site-header">
+        <div class="container">
+            <div class="logo" href="% url 'home' %">
+                <span span style="color: rgb(125, 109, 238);"> easy</span>base
+            </div>
+            <nav class="main-nav">
+                <ul class="spisoksil">
+                    {% for m in menu %}
+                    <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </header>
+    {% endblock mainmenu %}
+
+    <main class="main-content">
+        {% block content %}{% endblock content %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo"><span style="color: rgb(125, 109, 238);">easy</span>base</div>
+                </div>
+                <div class="footer-links">
+                    <a href="/">Главная</a>
+                    <a href="/">О нас</a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2025 easybase. Все права защищены.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
