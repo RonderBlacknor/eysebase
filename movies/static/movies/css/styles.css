@@ -154,3 +154,35 @@ p{
     justify-content: space-between;
     margin: 20px;
 }
+
+
+/*  */
+
+.movie-detail-card{
+
+    background-color: rgb(36, 36, 60);
+    border-radius: 12px;
+    width: 1000px;
+    height: 520px;
+    display: flex;
+    justify-content:space-evenly; 
+
+}
+
+.movie-detail-desc{
+    color: rgb(112, 114, 156);
+}
+
+h4{
+    color: rgb(249, 249, 255);
+    font-size: 20px;
+}
+
+.movie-genre{
+    width: 60px;
+    height: 40px;
+}
+
+a{
+    color: rgb(126, 107, 255)
+}

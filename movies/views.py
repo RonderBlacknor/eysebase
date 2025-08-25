@@ -1,5 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
+
 from .models import Movie
 
 
@@ -35,8 +36,17 @@ def movies(request, year):
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Страницы не сущетсвует</h1>')
 
-def show_movie(requet, post_id): 
-    return HttpResponse(f'Страница Фильма с ID = {post_id}')
+def show_movie(request, post_id): 
+    movie = get_object_or_404(Movie, pk=post_id)
+    param = {
+        'menu': menu, 
+        'title': movie.title, 
+        'movie': movie
+    }
+
+    return render(request, 'movies/movie_detail.html', context=param)
+
+
 def add_movie(request):
     return HttpResponse('Добавление фильма')
 

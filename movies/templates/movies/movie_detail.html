@@ -1,0 +1,40 @@
+{% extends 'movies/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="movie-detail-card">
+        <div class="movie-detail-poster">
+            <div class="poster-placeholder">
+            
+            </div>
+        </div>
+
+        <div class="movie-detail-info">
+            <h1 class="movie-detail-title">{{ movie.title }}</h1>
+
+            <div class="movie-meta">
+                <span>Год: {{ movie.release_yers }}</span>
+                <span>Рейтинг:{{ movie.reting }}</span>
+            </div>
+
+            <div class="movie-genres">
+                {% for genre in movie.genres.all %}
+                <span class="movie-genre">{{ genre.name }}</span>
+                {% endfor %}
+            </div>
+
+            <p class="movie-detail-desc">{{ movie.description }}</p>
+
+            {% if movie.director %}
+            <div class="movie-director">
+                <h4>Режиссер:</h4>
+                <p>
+                    <a href="#">{{ movie.director.first_name }} {{ movie.director.last_name }}</a>
+                </p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
