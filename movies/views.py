@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect, render, get_object_or_404
 
-from .models import Movie
+from .models import Movie, Director
 
 
 
@@ -22,7 +22,16 @@ def index(request):
     return render(request, 'movies/index.html', context=param )
 
 def about(request):
-    return render(request, 'movies/about.html', {'menu':menu, 'title': 'О сайте'})
+    movie_count = Movie.objects.filter(is_published=True).count()
+    director_count = Director.objects.count()
+
+    param = {
+        'menu': menu,
+        'title': 'О сайте', 
+        'movie_count': movie_count,
+        'director_count': director_count,
+    }
+    return render(request, 'movies/about.html', {'menu':menu, 'title': 'О сайте', 'movie_count': movie_count, 'director_count': director_count})
 
 def genre(request, genreid):
     print(request.GET)

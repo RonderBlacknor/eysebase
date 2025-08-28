@@ -186,3 +186,13 @@ h4{
 a{
     color: rgb(126, 107, 255)
 }
+
+h3{
+    color: aliceblue;
+}
+
+.container_about{
+    background-color: rgb(49, 49, 77);
+    width: 400px;
+    height: 400px;
+}
