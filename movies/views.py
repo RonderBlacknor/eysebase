@@ -13,7 +13,7 @@ menu = [
 ]
 
 def index(request):
-    movies = Movie.objects.order_by('time_create').select_related('director').all()[:3]
+    movies = Movie.objects.order_by('time_create').select_related('director').all()
     genres = Genre.objects.all()
 
     param = {
