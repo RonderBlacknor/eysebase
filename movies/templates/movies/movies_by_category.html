@@ -1,0 +1,40 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+<!-- Секция видео -->
+<section class="movies-section"> 
+    <!-- строка с видео -->
+    <div class="section-header_container"> 
+        <h2 class="section-title">{{ title }}</h2>
+        <a href="/" class="view-all">Смотреть все <i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <div class="movies-grid_container">
+        {% for movie in movies %}
+        <div class="movie-card">
+            <div class="movie-poster">
+                <div class="poster-placeholder">
+                    <i class="fas fa-film"></i>
+                </div>
+            </div>
+            <div class="movie-info">
+                <h3 class="movie-title">{{ movie.title }}</h3>
+                <span class="movie-genre"> 
+                    {% for genre in movie.genres.all %}
+                        {{genre.name}}{% if not forllop.last %}, {% endif %}
+                    {% endfor %}
+                </span>
+                {% if movie.description|length > 30 %}
+                    <p class="movie-desc">{{ movie.description|truncatewords:20 }}</p>
+                {% else %}
+                    <p class="movie-desc">{{ movie.description }}</p>
+                {% endif %}
+                <p> Рейтинг: {{ rating }}</p>
+                <a href="{{movie.get_absolute_url }}" class="btn-details">Подробнее</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock content %}

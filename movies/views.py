@@ -33,6 +33,16 @@ def about(request):
     }
     return render(request, 'movies/about.html', {'menu':menu, 'title': 'О сайте', 'movie_count': movie_count, 'director_count': director_count})
 
+def movie_by_genre(request, genre_id): 
+    genre = get_object_or_404(Genre, pk=genre_id)
+    movies = Movie.objects.filter(genres=genre)
+
+    param = {
+        'menu': menu, 
+        'movie': movies, 
+        'title': f'Фильмы в жанре: {genre.name}'
+    }
+    
 def genre(request, genreid):
     print(request.GET)
     return HttpResponse(f'<h1> Жанры фильмов </h1> <p>{genreid}</p>')
