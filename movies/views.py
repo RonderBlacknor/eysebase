@@ -1,15 +1,15 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import redirect, render, get_object_or_404
+from django.contrib.auth.forms import UserCreationForm
 
 from .models import Movie, Director, Genre
-
-
 
 menu = [
 
     {'title': 'Главная', 'url_name': 'index'},
     {'title': 'О сайте', 'url_name': 'about'},
     {'title': 'Добавить фильм', 'url_name': 'add_movie' },
+    {'title': 'Регистрация', 'url_name': 'register' },
 ]
 
 def index(request):
@@ -44,6 +44,22 @@ def movies(request, year):
     if int(year) > 2025:
         return redirect('/', permanent=True)
     return HttpResponse(f'Фильмы за {year}г.')
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+
+    param = {
+        'menu': menu,
+        'title': 'Регистрация',
+        'form': form
+    }
+    return render(request, 'movies/register.html', context=param)
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Страницы не сущетсвует</h1>')
