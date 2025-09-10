@@ -1,0 +1,31 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="static-page-content">
+        <h1 class="section-title">Авторизация</h1>
+
+        <form method="post">
+            # Обещает безопасть 
+           {% csrf_token %} 
+
+           {% if form.non_field_errors %}
+                <div class="form-errrors"> {{ form.non.field_errors }} </div>
+           {% endif %}
+
+           <div class="form-group">
+                {{ form.username.label_tag}}
+                {{ form.username }}
+           </div>
+
+           <div class="form-group">
+                {{ form.password1.label_tag}}
+                {{ form.password1 }}
+           </div>
+
+           <button type="submit" class="btn-details">Войти</button>
+
+        </form>
+    </div>
+</div>
+{% endblock %}
