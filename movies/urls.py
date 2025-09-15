@@ -11,7 +11,10 @@ urlpatterns = [
     path('genre/<int:genre_id>/', movie_by_genre, name='genre'), 
     path('register/', register, name='register'),
     path('login/', login_user, name='login'),
-    path('logout/', logout_user, name='logout')
+    path('logout/', logout_user, name='logout'),
+    path('add_to_watchlist/<int:movie_id>/', add_to_watchlist, name='add_to_watchlist'),
+    path('profile/', profile, name='profile'),
+
 
 ]
 

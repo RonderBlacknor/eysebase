@@ -15,11 +15,10 @@ class CustomUserCreationForm(UserCreationForm):
         for field in self.fields:
             self.fields[field].help_text = None
 
-
-class CustomAuthenticatoinForm(AuthenticationForm):
+class CustomAuthenticationForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-
+        
         for field in self.fields.values():
-            field.winget.atters['class'] = 'form-control'
+            field.widget.attrs['class'] = 'form-control'
             field.widget.attrs['placeholder'] = field.label

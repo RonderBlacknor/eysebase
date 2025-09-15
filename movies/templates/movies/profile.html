@@ -1,0 +1,28 @@
+{% extends 'movies/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="section-title">Профиль: {{ user.username }}</h1>
+    
+    <h2 class="section-title" style="margin-top: 30px;">Просмотренные фильмы ({{ watchlist.count }})</h2>
+    
+    {% if watchlist %}
+        <div class="movies-grid">
+            {% for item in watchlist %}
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <div class="poster-placeholder"><i class="fas fa-film"></i></div>
+                    </div>
+                    <div class="movie-info">
+                        <h3 class="movie-title">{{ item.movie.title }}</h3>
+                        <p>Добавлено: {{ item.watched_on|date:"d.m.Y" }}</p>
+                        <a href="{{ item.movie.get_absolute_url }}" class="btn-details">Подробнее</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>Вы пока не добавили ни одного фильма в просмотренное.</p>
+    {% endif %}
+</div>
+{% endblock %}

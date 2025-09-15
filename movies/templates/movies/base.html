@@ -24,6 +24,7 @@
 
                     {% if user.is_authenticaten %}
                         <li><span>Привет, {{ user.username }}</span></li>
+                        <li><a href="{% url 'profile'%}">Мой Профиль</a></li>
                         <li><a href="{% url 'logout' %}">Выйти</a></li>
                     {% else %}
                         <li><a href="{% url 'register' %}">Регистрация</a></li>
