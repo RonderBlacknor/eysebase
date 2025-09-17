@@ -44,6 +44,12 @@ a:hover{
     padding: 10px;
     flex-wrap:wrap;
 }
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
 
 /* РАБОТА С МЕНЮ ФИЛЬМОВ  */
 h2{

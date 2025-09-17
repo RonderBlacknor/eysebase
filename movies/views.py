@@ -20,7 +20,7 @@ def logout_user(request):
     return redirect('home')
 
 def index(request):
-    movies = Movie.objects.order_by('time_create').select_related('director').all()
+    movies = Movie.objects.order_by('time_create').select_related('director').all()[:3]
     genres = Genre.objects.all()
 
     param = {
@@ -30,6 +30,16 @@ def index(request):
         'title': 'Главная Страница'
     }
     return render(request, 'movies/index.html', context=param )
+
+def all_movies(request):
+    movies = Movie.objects.order_by('-time_create').select_related('director').all()
+
+    param = {
+        'menu': menu,
+        'movies': movies,
+        'title': 'Все фильмы'
+    }
+    return render(request, 'movies/all_movies.html', context=param )
 
 def about(request):
     movie_count = Movie.objects.filter(is_published=True).count()

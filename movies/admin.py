@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Genre, Movie, Director, Watchlist
 
+
 @admin.register(Movie)
 class MovieAdmin(admin.ModelAdmin):
     list_display = ('id', 'title', 'release_year', 'rating', 'is_published', 'director')
